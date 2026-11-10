@@ -1,45 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Budget Side Quest</title>
+  <meta name="theme-color" content="#211812">
+  <meta name="description" content="A cozy haven for travelers sharing bargains, budget meals, useful fixes, and stories from the road.">
+  <title>The Budget Side Quest | The Wayfarer's Rest</title>
   <style>
-    body {
-      background: #141827;
-      color: #f5f1df;
-      font-family: 'Courier New', monospace;
-      text-align: center;
-      padding: 70px 20px;
-    }
-    h1 { color: #f6cc65; }
-    .panel {
-      max-width: 650px;
-      margin: 40px auto;
-      padding: 30px;
-      border: 3px solid #f6cc65;
-      background: #22283c;
-      box-shadow: 7px 7px 0 #090b13;
-    }
-    .subtitle { color: #a7e3ba; }
-    footer { margin-top: 60px; color: #9da3b5; }
+    :root { --ink:#f4e7c9; --muted:#c7ad87; --gold:#e9b95f; --wood:#3a271e; --border:#8c633e; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); font:16px/1.7 Georgia, 'Times New Roman', serif; background:radial-gradient(ellipse at 50% 0%, #493020 0, #241a17 45%, #151213 100%); }
+    a { color:inherit; }
+    .shell { width:min(1080px, calc(100% - 36px)); margin:auto; }
+    header { border-bottom:1px solid #805b3a; background:#1b1514df; }
+    .nav { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:15px 0; }
+    .brand { color:var(--gold); font-weight:bold; letter-spacing:.07em; text-decoration:none; font-size:.95rem; }
+    nav { display:flex; gap:20px; font-size:.9rem; }
+    nav a { text-decoration:none; color:#e4cfaa; }
+    nav a:hover, nav a:focus { color:#fff0b8; text-decoration:underline; }
+    .hero { text-align:center; padding:78px 12px 85px; position:relative; }
+    .hero:before { content:'✦'; display:block; color:var(--gold); font-size:30px; margin-bottom:12px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:.22em; color:var(--gold); font:700 .75rem/1.5 Arial, sans-serif; }
+    h1 { font-size:clamp(2.8rem, 8vw, 5.3rem); line-height:1.08; margin:14px 0; color:#ffdf99; text-shadow:0 4px 0 #3a2119, 0 10px 25px #0a0808; }
+    .hero p { max-width:640px; margin:16px auto; color:#ead7b8; font-size:1.12rem; }
+    .tagline { font-style:italic; color:#d6b577 !important; }
+    .button { display:inline-block; margin-top:20px; padding:12px 25px; border:2px solid #e2ae57; border-radius:3px; background:linear-gradient(#77502d,#49301f); box-shadow:0 5px 0 #120e0c; text-decoration:none; font:bold .88rem Arial,sans-serif; letter-spacing:.06em; }
+    .button:hover { background:linear-gradient(#916638,#5c3a22); }
+    .inn { margin-top:-25px; border:2px solid #987046; padding:27px; background:linear-gradient(140deg,#493124e8,#2d211de8); box-shadow:0 14px 45px #0b0909a8, inset 0 0 0 5px #261c18; position:relative; }
+    .inn:before { content:'✦  ✦  ✦'; display:block; text-align:center; color:#d7a65b; letter-spacing:15px; margin-bottom:8px; }
+    h2 { color:#f2ca81; font-size:1.75rem; margin:4px 0 12px; }
+    .inn p { max-width:770px; margin:0 auto 12px; text-align:center; }
+    .inn h2 { text-align:center; }
+    .section-title { text-align:center; margin:58px 0 25px; }
+    .section-title small { display:block; color:var(--muted); font-style:italic; }
+    .quests { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .quest { padding:25px 23px; background:linear-gradient(150deg,#443025,#2a211e); border:1px solid #926a42; box-shadow:0 6px 0 #130f0e; }
+    .quest .symbol { font-size:2rem; }
+    .quest h3 { color:#f0c980; margin:9px 0 8px; font-size:1.28rem; }
+    .quest p { color:#d6c4a9; margin:0; }
+    .journal { margin:55px 0; padding:30px; border-left:4px solid var(--gold); background:#211a18; }
+    .journal h2 { margin-top:0; }
+    .journal p { color:#d6c4a9; margin-bottom:0; }
+    footer { padding:25px 0 40px; text-align:center; color:#a99276; font-size:.85rem; border-top:1px solid #533c2c; }
+    @media(max-width:720px) { .nav { justify-content:center; } .hero { padding:52px 4px 70px; } .quests { grid-template-columns:1fr; } .inn { padding:24px 16px; } nav { gap:14px; } }
   </style>
 </head>
 <body>
-  <h1>⚔ THE BUDGET SIDE QUEST ⚔</h1>
-  <p class="subtitle">Living well. Spending less. Gaining XP.</p>
-
-  <div class="panel">
-    <h2>WELCOME, ADVENTURER!</h2>
-    <p>
-      A real-life journey through bargains, budget meals,
-      DIY fixes, experiments, and everyday adventures.
-    </p>
-    <p>Our adventure is just beginning...</p>
-    <p>🎮 LEVEL 1 — SITE UNDER CONSTRUCTION</p>
-  </div>
-
-  <footer>© 2026 The Budget Side Quest</footer>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#top">⚔ THE BUDGET SIDE QUEST</a>
+      <nav aria-label="Main navigation">
+        <a href="#tavern">The Tavern</a>
+        <a href="#quests">Quest Board</a>
+        <a href="#journal">Journal</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top" class="shell">
+    <section class="hero">
+      <div class="eyebrow">A haven for weary adventurers</div>
+      <h1>The Wayfarer's<br>Rest</h1>
+      <p>Come in from the road. Warm yourself by the fire. There's always room at the table for another traveler.</p>
+      <p class="tagline">Living well. Spending less. Gaining XP.</p>
+      <a class="button" href="#tavern">ENTER THE TAVERN ↓</a>
+    </section>
+    <section id="tavern" class="inn">
+      <h2>Welcome, Traveler</h2>
+      <p>Life's an expensive adventure. Around here, we swap stories, share good finds, cook honest meals, and figure out how to make our gold go a little further.</p>
+      <p>No legendary fortune required. Pull up a chair, and stay awhile.</p>
+    </section>
+    <section id="quests">
+      <div class="section-title"><div class="eyebrow">Adventures worth sharing</div><h2>The Quest Board</h2><small>Choose your next side quest.</small></div>
+      <div class="quests">
+        <article class="quest"><div class="symbol" aria-hidden="true">🪙</div><h3>Loot & Bargains</h3><p>Deals worth the detour, hidden savings, and the occasional treasure chest that turns out to be empty.</p></article>
+        <article class="quest"><div class="symbol" aria-hidden="true">🍲</div><h3>Campfire Cooking</h3><p>Good food from humble ingredients. Stretch the groceries, not the truth.</p></article>
+        <article class="quest"><div class="symbol" aria-hidden="true">🛠️</div><h3>Crafting & Repairs</h3><p>Fix it, reuse it, build it, or discover when paying someone else is the smarter quest.</p></article>
+      </div>
+    </section>
+    <section id="journal" class="journal">
+      <div class="eyebrow">The Adventurer's Journal</div>
+      <h2>Our story is just beginning.</h2>
+      <p>Real purchases. Real experiments. Real wins and failures. The first stories are on their way—once we've finished living them.</p>
+    </section>
+  </main>
+  <footer>© 2026 The Budget Side Quest · Every coin counts. Every journey has a story.</footer>
 </body>
 </html>
