@@ -34,27 +34,34 @@
     .inn h2 { text-align:center; }
     .section-title { text-align:center; margin:58px 0 25px; }
     .section-title small { display:block; color:var(--muted); font-style:italic; }
-    .board { padding:20px; border:7px ridge #825638; border-radius:5px; background:repeating-linear-gradient(0deg,#302018 0,#39271e 68px,#291b16 70px,#39271e 74px); box-shadow:0 18px 38px #090606aa,inset 0 0 25px #100a08; }
-    .quests { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-    .quest { position:relative; padding:25px 24px 24px; background:linear-gradient(135deg,#e7d3a6,#c9ab78); border:1px solid #a98654; color:#352417; box-shadow:2px 5px 10px #0d0909aa,inset 0 0 0 4px #e9d7b1; transform:rotate(-.3deg); }
-    .quest:nth-child(even) { transform:rotate(.4deg); }
-    .quest:before { content:''; position:absolute; top:11px; left:50%; width:9px; height:9px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#f2c77c,#8d572c 75%); box-shadow:0 2px 3px #49301b88; }
-    .quest h3 { color:#4e2d1b; margin:8px 0; font-size:1.3rem; line-height:1.25; }
-    .quest p { color:#5b4430; margin:0; }
-    .quest .symbol { font-size:1.9rem; line-height:1; }
-    .quest .status { display:inline-block; margin-top:16px; padding:5px 9px; border:1px solid #95744e; color:#654c36; font:700 .68rem Arial,sans-serif; letter-spacing:.09em; text-transform:uppercase; }
-    .quest.featured { grid-column:1/-1; background:linear-gradient(135deg,#f0d9a8,#d5b67f); border:2px solid #edb65e; transform:none; display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; }
-    .quest.featured .symbol { font-size:2.5rem; }
-    .quest.featured h3 { font-size:1.65rem; }
-    .quest.featured .status { background:#4a3020; color:#f9df9d; border-color:#4a3020; }
+    .board { padding:22px; border:7px ridge #9d6039; border-radius:5px; background:repeating-linear-gradient(0deg,#2d1d17 0,#3b261d 68px,#261813 70px,#3b261d 74px); box-shadow:0 18px 38px #090606aa,inset 0 0 25px #100a08; }
+    .quests { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+    .quest { position:relative; min-width:0; padding:25px 24px 22px; background:linear-gradient(135deg,#f2d7a0,#e0bc82); border:3px solid #c28d4e; outline:1px solid #7a4b2a; color:#352417; box-shadow:2px 7px 12px #0d0909aa,inset 0 0 0 4px #f8e1b2; }
+    .quest:before { content:''; position:absolute; top:12px; left:50%; width:12px; height:12px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#ffe3a3,#b7762d 65%,#6a391e); box-shadow:0 2px 3px #49301b88; z-index:1; }
+    .quest h3 { color:#4e2d1b; margin:0 0 8px; font-size:clamp(1.25rem,2.5vw,1.7rem); line-height:1.2; }
+    .quest p { color:#503620; margin:0; line-height:1.5; }
+    .quest .status { display:inline-block; margin-top:16px; padding:5px 9px; border:1px solid #a27645; color:#604026; font:700 .68rem Arial,sans-serif; letter-spacing:.09em; text-transform:uppercase; }
+    .quest .status.active { background:#4a3020; color:#f9df9d; border-color:#4a3020; }
+    .quest-content { display:flex; align-items:flex-start; gap:18px; padding-top:12px; }
+    .quest-icon { display:block; width:120px; height:125px; object-fit:contain; flex:none; mix-blend-mode:multiply; image-rendering:pixelated; }
+    .quest-copy { flex:1; min-width:0; }
+    .quest.featured { grid-column:1/-1; display:grid; grid-template-columns:minmax(0,1fr) minmax(200px,34%); gap:12px; align-items:center; background:linear-gradient(135deg,#f8dea9,#e4bf85); min-height:245px; }
+    .featured-main { display:flex; align-items:flex-start; gap:15px; }
+    .featured-main .quest-icon { width:90px; height:92px; }
+    .featured .eyebrow { color:#714621; }
+    .featured h3 { font-size:clamp(1.65rem,3vw,2.4rem); margin:7px 0 10px; }
+    .featured-art { display:block; width:100%; height:220px; object-fit:cover; object-position:center; border:5px solid #5b3523; box-shadow:inset 0 0 8px #0007,0 3px 7px #0005; }
     .quest-link { display:inline-block; margin-top:14px; padding:10px 15px; background:#543520; color:#fff0c6; text-decoration:none; border:1px solid #805232; font:bold .82rem Arial,sans-serif; }
     .quest-link:hover, .quest-link:focus-visible { background:#724526; text-decoration:underline; }
-    .board-note { color:#e4c89a; text-align:center; font-size:.88rem; margin:15px 0 0; }
+    .board-note { color:#e4c89a; text-align:center; font-size:.93rem; font-style:italic; margin:20px 0 2px; }
+    @media(max-width:800px) { .featured-art { display:none; } .quest.featured { grid-template-columns:1fr; } }
+    @media(max-width:720px) { .quests { grid-template-columns:1fr; } .quest.featured { grid-column:auto; } .board { padding:12px; } .quest-icon { width:90px; height:100px; } }
+    @media(max-width:420px) { .quest-content { gap:8px; } .quest-icon { width:65px; height:85px; } .featured-main .quest-icon { width:60px; height:75px; } .quest { padding:24px 14px 18px; } }
     .journal { margin:55px 0; padding:30px; border-left:4px solid var(--gold); background:#211a18; }
     .journal h2 { margin-top:0; }
     .journal p { color:#d6c4a9; margin-bottom:0; }
     footer { padding:25px 0 40px; text-align:center; color:#a99276; font-size:.85rem; border-top:1px solid #533c2c; }
-    @media(max-width:720px) { .nav { justify-content:center; } .hero { padding:52px 4px 70px; } .quests { grid-template-columns:1fr; } .quest.featured { grid-column:auto; } .inn { padding:24px 16px; } nav { gap:14px; } .board { padding:12px; } }
+    @media(max-width:720px) { .nav { justify-content:center; } .hero { padding:52px 4px 70px; } .inn { padding:24px 16px; } nav { gap:14px; } }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
   </style>
 </head>
@@ -88,32 +95,57 @@
       <div class="board">
         <div class="quests">
           <article class="quest featured">
-            <div class="symbol" aria-hidden="true">⚗️</div>
-            <div>
-              <span class="eyebrow" style="color:#714621">Featured Quest</span>
-              <h3>The Alchemist’s Counter</h3>
-              <p>Six real Dollar Tree energy potions. Honest field notes on flavor, energy, focus, and stomach comfort. Each cost $1.50 — nine gold pieces spent in total.</p>
-              <span class="status">Active · 6 potions tested</span><br>
-              <a class="quest-link" href="alchemist.html">Visit the Counter →</a>
+            <div class="featured-main">
+              <img class="quest-icon" src="images/quest-potion.webp" alt="" width="90" height="92">
+              <div class="quest-copy">
+                <span class="eyebrow">Featured Quest</span>
+                <h3>The Alchemist’s Counter</h3>
+                <p>Six real Dollar Tree energy potions. Honest field notes on flavor, energy, focus, and stomach comfort. Each cost $1.50 — $9 spent in total.</p>
+                <span class="status active">Active · 6 potions tested</span><br>
+                <a class="quest-link" href="alchemist.html">Visit the Counter →</a>
+              </div>
+            </div>
+            <img class="featured-art" src="images/quest-shelf.webp" alt="" width="421" height="340">
+          </article>
+          <article class="quest">
+            <div class="quest-content">
+              <img class="quest-icon" src="images/quest-chest.webp" alt="" width="120" height="125" loading="lazy">
+              <div class="quest-copy">
+                <h3>Loot &amp; Bargains</h3>
+                <p>Deals worth the detour, hidden savings, and the occasional treasure chest that turns out to be empty.</p>
+                <span class="status">Awaiting first adventure</span>
+              </div>
             </div>
           </article>
           <article class="quest">
-            <div class="symbol" aria-hidden="true">🪙</div>
-            <h3>Loot &amp; Bargains</h3>
-            <p>Deals worth the detour, hidden savings, and the occasional treasure chest that turns out to be empty.</p>
-            <span class="status">Quest not yet unlocked</span>
+            <div class="quest-content">
+              <img class="quest-icon" src="images/quest-cooking.webp" alt="" width="120" height="125" loading="lazy">
+              <div class="quest-copy">
+                <h3>Campfire Cooking</h3>
+                <p>Good food from humble ingredients. Stretch the groceries, not the truth.</p>
+                <span class="status">Awaiting first adventure</span>
+              </div>
+            </div>
           </article>
           <article class="quest">
-            <div class="symbol" aria-hidden="true">🍲</div>
-            <h3>Campfire Cooking</h3>
-            <p>Good food from humble ingredients. Stretch the groceries, not the truth.</p>
-            <span class="status">Quest not yet unlocked</span>
+            <div class="quest-content">
+              <img class="quest-icon" src="images/quest-tools.webp" alt="" width="120" height="125" loading="lazy">
+              <div class="quest-copy">
+                <h3>Crafting &amp; Repairs</h3>
+                <p>Fix it, reuse it, build it, or discover when paying someone else is the smarter quest.</p>
+                <span class="status">Awaiting first adventure</span>
+              </div>
+            </div>
           </article>
           <article class="quest">
-            <div class="symbol" aria-hidden="true">🛠️</div>
-            <h3>Crafting &amp; Repairs</h3>
-            <p>Fix it, reuse it, build it, or discover when paying someone else is the smarter quest.</p>
-            <span class="status">Quest not yet unlocked</span>
+            <div class="quest-content">
+              <img class="quest-icon" src="images/quest-journal.webp" alt="" width="120" height="125" loading="lazy">
+              <div class="quest-copy">
+                <h3>The Adventurer’s Journal</h3>
+                <p>Not every adventure comes with a reward. Some are just stories worth telling.</p>
+                <span class="status">Awaiting first adventure</span>
+              </div>
+            </div>
           </article>
         </div>
         <p class="board-note">New quests will appear here as the adventures happen.</p>
