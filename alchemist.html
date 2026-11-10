@@ -4,206 +4,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#1b1412">
 <title>The Alchemist's Counter | The Budget Side Quest</title>
 <style>
 :root {
   --bg:#1b1412;
-  --panel:#30221c;
-  --wood:#493025;
-  --gold:#efb85f;
-  --cream:#f7e5c5;
-  --muted:#c4a88b;
-  --line:#80583a;
+  --wood:#30221b;
+  --wood2:#493025;
+  --gold:#edb65e;
+  --cream:#f8e8ca;
+  --muted:#c8ad8d;
+  --border:#785238;
 }
 * { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
 body {
   margin:0;
   background:var(--bg);
   color:var(--cream);
-  font:16px/1.65 Georgia,serif;
+  font:16px/1.6 Georgia,serif;
 }
 a { color:var(--gold); }
 header {
+  padding:18px 5%;
+  background:#211714;
+  border-bottom:1px solid var(--border);
   display:flex;
   justify-content:space-between;
   align-items:center;
+  gap:15px;
   flex-wrap:wrap;
-  gap:12px;
-  padding:16px 5%;
-  background:#201715;
-  border-bottom:1px solid var(--line);
 }
 .brand {
-  color:var(--gold);
   font-weight:bold;
+  color:var(--gold);
   text-decoration:none;
   letter-spacing:1px;
 }
-nav { display:flex;gap:22px; }
+nav { display:flex;gap:22px;flex-wrap:wrap; }
 nav a { text-decoration:none; }
 nav a:hover { text-decoration:underline; }
+
 .hero {
   text-align:center;
-  padding:75px 20px 60px;
+  padding:90px 20px 75px;
   background:
-    radial-gradient(ellipse at center,
-      #573728 0%,#2b1d18 65%,#1b1412 100%);
+    radial-gradient(ellipse at 50% 90%,
+      #75452a70,transparent 60%),
+    linear-gradient(180deg,#39251d,#1b1412);
+  border-bottom:1px solid var(--border);
 }
 .eyebrow {
   color:var(--gold);
-  font:700 12px Arial,sans-serif;
-  letter-spacing:3px;
   text-transform:uppercase;
+  letter-spacing:3px;
+  font:700 12px Arial,sans-serif;
 }
 h1 {
+  color:#ffdb9b;
   font-size:clamp(40px,7vw,76px);
-  line-height:1.1;
-  margin:15px 0;
-  color:#ffda91;
+  line-height:1.12;
+  margin:16px 0;
 }
 .hero p {
-  max-width:650px;
-  margin:15px auto;
+  max-width:680px;
+  margin:12px auto;
   font-size:19px;
 }
 main {
-  max-width:1150px;
+  max-width:1200px;
   margin:auto;
-  padding:40px 20px 80px;
+  padding:45px 20px 80px;
 }
-.intro {
-  background:var(--panel);
-  border:1px solid var(--line);
-  padding:22px 26px;
-  margin-bottom:38px;
+.welcome {
+  padding:25px 30px;
+  background:#2b1e18;
+  border:1px solid var(--border);
+  border-left:4px solid var(--gold);
+  margin-bottom:50px;
 }
-.intro strong { color:var(--gold); }
-.section-heading {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-  margin-bottom:22px;
-}
+.welcome h2 { margin-top:0; }
 h2 { color:var(--gold); }
+.section-title {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-bottom:24px;
+}
 .filters {
   display:flex;
   flex-wrap:wrap;
   gap:8px;
 }
 .filters button {
-  cursor:pointer;
-  border:1px solid var(--line);
-  background:#2a1c17;
+  padding:10px 14px;
+  background:#32221a;
   color:var(--cream);
-  border-radius:4px;
-  padding:9px 14px;
+  border:1px solid var(--border);
+  border-radius:5px;
+  cursor:pointer;
 }
 .filters button.active,
 .filters button:hover {
   background:var(--gold);
-  color:#21150e;
+  color:#23160e;
 }
 .inventory {
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:22px;
+  gap:25px;
 }
 .potion {
   min-width:0;
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:8px;
-  overflow:hidden;
-  box-shadow:5px 6px 0 #100c0a;
-}
-.photo {
-  height:255px;
   background:
-    linear-gradient(135deg,#533829,#241914);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  padding:12px;
+    linear-gradient(160deg,#3c291f,#281c17);
+  border:1px solid #88603c;
+  border-radius:9px;
+  overflow:hidden;
+  box-shadow:0 12px 25px #0005;
+  transition:transform .2s,box-shadow .2s;
 }
-.photo img {
-  max-width:100%;
+.potion:hover {
+  transform:translateY(-4px);
+  box-shadow:0 16px 30px #0008;
+}
+.art {
+  position:relative;
+  padding:14px;
+  background:#211813;
+  border-bottom:3px solid #805536;
+}
+.art img {
+  display:block;
   width:100%;
-  height:100%;
+  aspect-ratio:4/5;
   object-fit:contain;
+  border-radius:4px;
 }
 .number {
   position:absolute;
-  top:12px;
-  left:12px;
-  background:#1b1412e8;
+  top:23px;
+  left:23px;
+  background:#1a110de8;
   color:var(--gold);
-  padding:5px 10px;
-  border:1px solid var(--line);
+  border:1px solid var(--border);
+  padding:5px 11px;
   font:700 12px Arial,sans-serif;
 }
-.content { padding:22px; }
+.info { padding:23px; }
 .date {
-  font:12px Arial,sans-serif;
   color:var(--muted);
+  font:12px Arial,sans-serif;
   letter-spacing:1px;
 }
 .potion h3 {
-  font-size:24px;
+  color:#ffda98;
+  font-size:25px;
   line-height:1.2;
-  color:#ffda91;
-  margin:10px 0;
+  margin:12px 0;
 }
 .tag {
   display:inline-block;
-  padding:4px 9px;
-  background:#4b3426;
-  color:#f4d29d;
-  font:12px Arial,sans-serif;
+  padding:5px 10px;
+  background:#60432b;
+  color:#ffe3af;
   border-radius:4px;
-  margin-bottom:12px;
+  font:12px Arial,sans-serif;
 }
-.summary { min-height:75px; }
-.details {
-  border-top:1px solid var(--line);
-  margin-top:15px;
+.summary { min-height:78px; }
+details {
+  margin-top:18px;
+  border-top:1px solid var(--border);
   padding-top:15px;
 }
-details summary {
-  cursor:pointer;
+summary {
   color:var(--gold);
+  cursor:pointer;
   font-weight:bold;
 }
 details p { margin:12px 0; }
-.stat {
-  color:var(--gold);
-  font-weight:bold;
-}
-.disclaimer {
-  margin-top:45px;
-  padding:20px;
+details strong { color:var(--gold); }
+.note {
+  margin-top:50px;
+  padding:22px 25px;
+  background:#261b16;
   border-left:3px solid var(--gold);
   color:var(--muted);
-  background:#251a16;
 }
 footer {
   text-align:center;
-  padding:30px 15px;
-  border-top:1px solid var(--line);
+  padding:35px 20px;
   color:var(--muted);
+  border-top:1px solid var(--border);
 }
-[hidden] { display:none !important; }
+[hidden] { display:none!important; }
 @media(max-width:900px) {
   .inventory { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:600px) {
   .inventory { grid-template-columns:1fr; }
-  .photo { height:300px; }
   .summary { min-height:0; }
   header { justify-content:center; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .potion { transition:none; }
 }
 </style>
 </head>
@@ -223,241 +228,231 @@ footer {
 <section class="hero">
   <div class="eyebrow">The Wayfarer's Rest · Potion Shop</div>
   <h1>⚗ The Alchemist's Counter</h1>
-  <p>
-    Strange brews. Questionable ingredients.
-    Occasionally useful energy.
-  </p>
-  <p>
-    Pull up a stool. We're testing budget energy drinks
-    one can at a time.
-  </p>
+  <p>Strange brews. Questionable ingredients.
+  Occasionally useful energy.</p>
+  <p>Pull up a stool. We're testing budget energy
+  drinks one can at a time.</p>
 </section>
 
 <main>
-  <section class="intro">
-    <strong>A note from the counterkeeper</strong>
-    <p>
-      This is a real experiment in finding affordable
-      energy drinks that taste decent, help me get things
-      done, and don't make my stomach regret the decision.
-    </p>
-    <p>
-      Flavor matters, but so do energy, comfort, and value.
-      Some potions work better than others.
-      These are personal observations, not laboratory tests.
-    </p>
-  </section>
 
-  <div class="section-heading">
-    <h2>📜 Potion Inventory <span id="count">(6)</span></h2>
-    <div class="filters" aria-label="Filter reviews">
-      <button class="active" data-filter="all">All Potions</button>
-      <button data-filter="again">Buy Again</button>
-      <button data-filter="pending">Still Testing</button>
-    </div>
+<section class="welcome">
+  <h2>Welcome, weary traveler.</h2>
+  <p>
+    Not every energy potion requires a chest full of gold.
+    I've been experimenting with inexpensive energy drinks
+    to see which ones are actually worth bringing along
+    on life's daily quests.
+  </p>
+  <p>
+    Flavor is only part of the adventure.
+    I'm also paying attention to energy, focus,
+    stomach comfort, and whether I'd buy another.
+    These are real experiences, not sponsored reviews.
+  </p>
+</section>
+
+<div class="section-title">
+  <h2>📜 Potion Inventory <span id="count">(6)</span></h2>
+  <div class="filters">
+    <button class="active" data-filter="all">All Potions</button>
+    <button data-filter="again">Buy Again</button>
+    <button data-filter="other">Other Notes</button>
   </div>
+</div>
 
-  <section class="inventory" id="inventory">
+<section class="inventory">
 
-    <!-- POTION 006 -->
-    <article class="potion" data-status="again">
-      <div class="photo">
-        <span class="number">#006</span>
-        <img src="images/drink-006.webp"
-             alt="Rip It Power Zero Sugar can"
-             loading="lazy">
-      </div>
-      <div class="content">
-        <div class="date">NOVEMBER 10, 2026</div>
-        <h3>Rip It Power Zero Sugar</h3>
-        <span class="tag">Would buy again</span>
-        <p class="summary">
-          A surprisingly pleasant, subtle berry flavor
-          without an overpowering sweetness.
-        </p>
-        <details class="details">
-          <summary>Open field notes</summary>
-          <p><span class="stat">First sip:</span>
-            Artificial berry, possibly blueberry.
-            Mild and easy to drink.</p>
-          <p><span class="stat">Energy:</span>
-            Hard to determine a clear effect.</p>
-          <p><span class="stat">Side effects:</span>
-            No stomach problems reported.</p>
-          <p><span class="stat">Verdict:</span>
-            "Good drink!" Would buy again.</p>
-        </details>
-      </div>
-    </article>
+<article class="potion" data-status="again">
+  <div class="art">
+    <span class="number">#006</span>
+    <img src="images/drink-006.webp"
+         alt="Rip It Power Zero Sugar"
+         loading="lazy">
+  </div>
+  <div class="info">
+    <div class="date">NOVEMBER 10, 2026</div>
+    <h3>Rip It Power Zero Sugar</h3>
+    <span class="tag">Would buy again</span>
+    <p class="summary">
+      Subtle berry flavor, surprisingly pleasant
+      and not overpowering.
+    </p>
+    <details>
+      <summary>Open field notes</summary>
+      <p><strong>Flavor:</strong>
+        Artificial berry, possibly blueberry.</p>
+      <p><strong>Energy:</strong>
+        No clear conclusion about its effects.</p>
+      <p><strong>Comfort:</strong>
+        No stomach issues reported.</p>
+      <p><strong>Verdict:</strong>
+        "Good drink!" Would buy again.</p>
+    </details>
+  </div>
+</article>
 
-    <!-- POTION 005 -->
-    <article class="potion" data-status="again">
-      <div class="photo">
-        <span class="number">#005</span>
-        <img src="images/drink-005.webp"
-             alt="3D Energy Spicy Mango can"
-             loading="lazy">
-      </div>
-      <div class="content">
-        <div class="date">NOVEMBER 9, 2026</div>
-        <h3>3D Spicy Mango</h3>
-        <span class="tag">Would buy again</span>
-        <p class="summary">
-          Sweet mango with a chili-candy kick.
-          More spice as it warms up.
-        </p>
-        <details class="details">
-          <summary>Open field notes</summary>
-          <p><span class="stat">First sip:</span>
-            Reminiscent of dried mango chili candy.
-            Sweeter than preferred.</p>
-          <p><span class="stat">Energy:</span>
-            Noticeable zing and good energy.</p>
-          <p><span class="stat">Side effects:</span>
-            No stomach pain reported.</p>
-          <p><span class="stat">Verdict:</span>
-            Good drink, good energy.
-            Would buy again, but not stock up.</p>
-        </details>
-      </div>
-    </article>
+<article class="potion" data-status="again">
+  <div class="art">
+    <span class="number">#005</span>
+    <img src="images/drink-005.webp"
+         alt="3D Energy Spicy Mango"
+         loading="lazy">
+  </div>
+  <div class="info">
+    <div class="date">NOVEMBER 9, 2026</div>
+    <h3>3D Spicy Mango</h3>
+    <span class="tag">Would buy again</span>
+    <p class="summary">
+      Sweet mango with a chili-candy kick.
+      The spice builds as it warms.
+    </p>
+    <details>
+      <summary>Open field notes</summary>
+      <p><strong>Flavor:</strong>
+        Reminiscent of dried mango chili candy.
+        Sweeter than preferred.</p>
+      <p><strong>Energy:</strong>
+        Noticeable zing and good energy.</p>
+      <p><strong>Comfort:</strong>
+        No stomach pain reported.</p>
+      <p><strong>Verdict:</strong>
+        Good drink, good energy.
+        Would buy again, but wouldn't stock up.</p>
+    </details>
+  </div>
+</article>
 
-    <!-- POTION 004 -->
-    <article class="potion" data-status="pending">
-      <div class="photo">
-        <span class="number">#004</span>
-        <img src="images/drink-004.webp"
-             alt="Lemon-lime energy drink can"
-             loading="lazy">
-      </div>
-      <div class="content">
-        <div class="date">NOVEMBER 8, 2026</div>
-        <h3>Lemon-Lime</h3>
-        <span class="tag">Verdict not recorded</span>
-        <p class="summary">
-          More like sweet limeade than a sharp,
-          tart citrus soda.
-        </p>
-        <details class="details">
-          <summary>Open field notes</summary>
-          <p><span class="stat">First sip:</span>
-            Lemon-lime aroma, sweet limeade taste.</p>
-          <p><span class="stat">Energy:</span>
-            Noticeable after finishing around 1:50 PM.</p>
-          <p><span class="stat">Side effects:</span>
-            Slight jitters and mild stomach gurgling.</p>
-          <p><span class="stat">Verdict:</span>
-            Final buy-again decision not recorded.</p>
-        </details>
-      </div>
-    </article>
+<article class="potion" data-status="other">
+  <div class="art">
+    <span class="number">#004</span>
+    <img src="images/drink-004.webp"
+         alt="Lemon-lime energy drink"
+         loading="lazy">
+  </div>
+  <div class="info">
+    <div class="date">NOVEMBER 8, 2026</div>
+    <h3>Lemon-Lime</h3>
+    <span class="tag">Mixed effects</span>
+    <p class="summary">
+      Sweet limeade flavor rather than
+      a sharp, tart citrus drink.
+    </p>
+    <details>
+      <summary>Open field notes</summary>
+      <p><strong>Flavor:</strong>
+        Lemon-lime aroma, sweeter than tart.</p>
+      <p><strong>Energy:</strong>
+        Noticeable after finishing around 1:50 PM.</p>
+      <p><strong>Comfort:</strong>
+        Slight jitters and mild stomach gurgling.</p>
+      <p><strong>Verdict:</strong>
+        Buy-again decision not recorded.</p>
+    </details>
+  </div>
+</article>
 
-    <!-- POTION 003 -->
-    <article class="potion" data-status="pending">
-      <div class="photo">
-        <span class="number">#003</span>
-        <img src="images/drink-003.webp"
-             alt="3D Orange Cream energy drink can"
-             loading="lazy">
-      </div>
-      <div class="content">
-        <div class="date">NOVEMBER 7, 2026</div>
-        <h3>3D Orange Cream</h3>
-        <span class="tag">Verdict not recorded</span>
-        <p class="summary">
-          Smooth and true to its name.
-          An orange-cream flavor that delivers.
-        </p>
-        <details class="details">
-          <summary>Open field notes</summary>
-          <p><span class="stat">First sip:</span>
-            Smooth orange cream.</p>
-          <p><span class="stat">Nutrition:</span>
-            16 fl oz, 10 calories, zero sugar.</p>
-          <p><span class="stat">Energy:</span>
-            Final effect not yet documented here.</p>
-          <p><span class="stat">Verdict:</span>
-            Promising first impression;
-            buy-again decision not recorded.</p>
-        </details>
-      </div>
-    </article>
+<article class="potion" data-status="other">
+  <div class="art">
+    <span class="number">#003</span>
+    <img src="images/drink-003.webp"
+         alt="3D Energy Orange Cream"
+         loading="lazy">
+  </div>
+  <div class="info">
+    <div class="date">NOVEMBER 7, 2026</div>
+    <h3>3D Orange Cream</h3>
+    <span class="tag">Smooth flavor</span>
+    <p class="summary">
+      Smooth and true to its name.
+      A straightforward orange-cream experience.
+    </p>
+    <details>
+      <summary>Open field notes</summary>
+      <p><strong>Flavor:</strong>
+        Smooth, accurate orange cream.</p>
+      <p><strong>Can:</strong>
+        16 fl oz, 10 calories, zero sugar.</p>
+      <p><strong>Energy:</strong>
+        Final effects not documented here.</p>
+      <p><strong>Verdict:</strong>
+        Final buy-again decision not recorded.</p>
+    </details>
+  </div>
+</article>
 
-    <!-- POTION 002 -->
-    <article class="potion" data-status="pending">
-      <div class="photo">
-        <span class="number">#002</span>
-        <img src="images/drink-002.webp"
-             alt="G FUEL Berry Bomb can"
-             loading="lazy">
-      </div>
-      <div class="content">
-        <div class="date">NOVEMBER 6, 2026</div>
-        <h3>G FUEL Berry Bomb</h3>
-        <span class="tag">Mixed feelings</span>
-        <p class="summary">
-          Berry with a grape-cough-syrup hint.
-          Better as the experiment went on.
-        </p>
-        <details class="details">
-          <summary>Open field notes</summary>
-          <p><span class="stat">First sip:</span>
-            Smelled like purple drink.
-            Grape and Dimetapp notes.</p>
-          <p><span class="stat">Energy:</span>
-            Felt something after about five sips.</p>
-          <p><span class="stat">Side effects:</span>
-            No problems reported.</p>
-          <p><span class="stat">Verdict:</span>
-            Not particularly crave-worthy,
-            but interested in trying more G FUEL flavors.</p>
-        </details>
-      </div>
-    </article>
+<article class="potion" data-status="other">
+  <div class="art">
+    <span class="number">#002</span>
+    <img src="images/drink-002.webp"
+         alt="G FUEL Berry Bomb"
+         loading="lazy">
+  </div>
+  <div class="info">
+    <div class="date">NOVEMBER 6, 2026</div>
+    <h3>G FUEL Berry Bomb</h3>
+    <span class="tag">Mixed feelings</span>
+    <p class="summary">
+      Berry with a grape-cough-syrup hint.
+      Improved as the experiment continued.
+    </p>
+    <details>
+      <summary>Open field notes</summary>
+      <p><strong>Flavor:</strong>
+        Smelled like purple drink.
+        Grape and Dimetapp notes.</p>
+      <p><strong>Energy:</strong>
+        Felt something after about five sips.</p>
+      <p><strong>Comfort:</strong>
+        No issues reported.</p>
+      <p><strong>Verdict:</strong>
+        Not particularly crave-worthy,
+        but interested in trying more G FUEL flavors.</p>
+    </details>
+  </div>
+</article>
 
-    <!-- POTION 001 -->
-    <article class="potion" data-status="again">
-      <div class="photo">
-        <span class="number">#001</span>
-        <img src="images/drink-001.webp"
-             alt="Big Game Cotton Candy can"
-             loading="lazy">
-      </div>
-      <div class="content">
-        <div class="date">NOVEMBER 5, 2026</div>
-        <h3>Big Game Cotton Candy</h3>
-        <span class="tag">Would drink again</span>
-        <p class="summary">
-          Very sweet, creamy, and artificial.
-          A gentle introduction to the experiment.
-        </p>
-        <details class="details">
-          <summary>Open field notes</summary>
-          <p><span class="stat">First sip:</span>
-            Toothpaste clashed with the flavor
-            because I'd just brushed my teeth.</p>
-          <p><span class="stat">Flavor:</span>
-            Creamy, sweet, artificial;
-            later like weak creamy strawberry.</p>
-          <p><span class="stat">Energy:</span>
-            Felt gentler than Alani.</p>
-          <p><span class="stat">Verdict:</span>
-            Would drink again, although
-            Alani Cotton Candy is preferred.</p>
-        </details>
-      </div>
-    </article>
+<article class="potion" data-status="again">
+  <div class="art">
+    <span class="number">#001</span>
+    <img src="images/drink-001.webp"
+         alt="Big Game Energy Cotton Candy"
+         loading="lazy">
+  </div>
+  <div class="info">
+    <div class="date">NOVEMBER 5, 2026</div>
+    <h3>Big Game Cotton Candy</h3>
+    <span class="tag">Would drink again</span>
+    <p class="summary">
+      Very sweet, creamy, and artificial.
+      Gentler than my usual Alani.
+    </p>
+    <details>
+      <summary>Open field notes</summary>
+      <p><strong>First sip:</strong>
+        I'd just brushed my teeth.
+        Not the ideal tasting conditions!</p>
+      <p><strong>Flavor:</strong>
+        Creamy and sweet, later resembling
+        weak creamy strawberry.</p>
+      <p><strong>Energy:</strong>
+        Felt noticeably gentler than Alani.</p>
+      <p><strong>Verdict:</strong>
+        Would drink again, although
+        Alani Cotton Candy is preferred.</p>
+    </details>
+  </div>
+</article>
 
-  </section>
+</section>
 
-  <aside class="disclaimer">
-    <strong>Adventurer's warning:</strong>
-    Energy drinks affect people differently.
-    These reviews describe one person's experiences,
-    not medical advice or promises about focus or energy.
-    Caffeine content and prices should be verified
-    from each product's label or retailer.
-  </aside>
+<aside class="note">
+  <strong>Adventurer's warning:</strong>
+  These reviews are personal experiences, not medical
+  advice or promises about energy and focus.
+  Products can affect everyone differently.
+</aside>
+
 </main>
 
 <footer>
@@ -473,21 +468,16 @@ const count = document.getElementById("count");
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
-
     buttons.forEach(b => b.classList.remove("active"));
     button.classList.add("active");
 
     let visible = 0;
-
     cards.forEach(card => {
-      const show =
-        filter === "all" ||
+      const show = filter === "all" ||
         card.dataset.status === filter;
-
       card.hidden = !show;
       if (show) visible++;
     });
-
     count.textContent = "(" + visible + ")";
   });
 });
