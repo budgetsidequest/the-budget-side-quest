@@ -16,9 +16,9 @@
     header { border-bottom:1px solid #805b3a; background:#1b1514df; }
     .nav { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; padding:15px 0; }
     .brand { color:var(--gold); font-weight:bold; letter-spacing:.07em; text-decoration:none; font-size:.95rem; }
-    nav { display:flex; gap:20px; font-size:.9rem; }
+    nav { display:flex; gap:20px; font-size:.9rem; flex-wrap:wrap; }
     nav a { text-decoration:none; color:#e4cfaa; }
-    nav a:hover, nav a:focus { color:#fff0b8; text-decoration:underline; }
+    nav a:hover, nav a:focus-visible { color:#fff0b8; text-decoration:underline; }
     .hero { text-align:center; padding:78px 12px 85px; position:relative; }
     .hero:before { content:'✦'; display:block; color:var(--gold); font-size:30px; margin-bottom:12px; }
     .eyebrow { text-transform:uppercase; letter-spacing:.22em; color:var(--gold); font:700 .75rem/1.5 Arial, sans-serif; }
@@ -26,7 +26,7 @@
     .hero p { max-width:640px; margin:16px auto; color:#ead7b8; font-size:1.12rem; }
     .tagline { font-style:italic; color:#d6b577 !important; }
     .button { display:inline-block; margin-top:20px; padding:12px 25px; border:2px solid #e2ae57; border-radius:3px; background:linear-gradient(#77502d,#49301f); box-shadow:0 5px 0 #120e0c; text-decoration:none; font:bold .88rem Arial,sans-serif; letter-spacing:.06em; }
-    .button:hover { background:linear-gradient(#916638,#5c3a22); }
+    .button:hover, .button:focus-visible { background:linear-gradient(#916638,#5c3a22); }
     .inn { margin-top:-25px; border:2px solid #987046; padding:27px; background:linear-gradient(140deg,#493124e8,#2d211de8); box-shadow:0 14px 45px #0b0909a8, inset 0 0 0 5px #261c18; position:relative; }
     .inn:before { content:'✦  ✦  ✦'; display:block; text-align:center; color:#d7a65b; letter-spacing:15px; margin-bottom:8px; }
     h2 { color:#f2ca81; font-size:1.75rem; margin:4px 0 12px; }
@@ -34,16 +34,28 @@
     .inn h2 { text-align:center; }
     .section-title { text-align:center; margin:58px 0 25px; }
     .section-title small { display:block; color:var(--muted); font-style:italic; }
+    .board { padding:20px; border:7px ridge #825638; border-radius:5px; background:repeating-linear-gradient(0deg,#302018 0,#39271e 68px,#291b16 70px,#39271e 74px); box-shadow:0 18px 38px #090606aa,inset 0 0 25px #100a08; }
     .quests { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-    .quest { padding:25px 23px; background:linear-gradient(150deg,#443025,#2a211e); border:1px solid #926a42; box-shadow:0 6px 0 #130f0e; }
-    .quest .symbol { font-size:2rem; }
-    .quest h3 { color:#f0c980; margin:9px 0 8px; font-size:1.28rem; }
-    .quest p { color:#d6c4a9; margin:0; }
+    .quest { position:relative; padding:25px 24px 24px; background:linear-gradient(135deg,#e7d3a6,#c9ab78); border:1px solid #a98654; color:#352417; box-shadow:2px 5px 10px #0d0909aa,inset 0 0 0 4px #e9d7b1; transform:rotate(-.3deg); }
+    .quest:nth-child(even) { transform:rotate(.4deg); }
+    .quest:before { content:''; position:absolute; top:11px; left:50%; width:9px; height:9px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#f2c77c,#8d572c 75%); box-shadow:0 2px 3px #49301b88; }
+    .quest h3 { color:#4e2d1b; margin:8px 0; font-size:1.3rem; line-height:1.25; }
+    .quest p { color:#5b4430; margin:0; }
+    .quest .symbol { font-size:1.9rem; line-height:1; }
+    .quest .status { display:inline-block; margin-top:16px; padding:5px 9px; border:1px solid #95744e; color:#654c36; font:700 .68rem Arial,sans-serif; letter-spacing:.09em; text-transform:uppercase; }
+    .quest.featured { grid-column:1/-1; background:linear-gradient(135deg,#f0d9a8,#d5b67f); border:2px solid #edb65e; transform:none; display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; }
+    .quest.featured .symbol { font-size:2.5rem; }
+    .quest.featured h3 { font-size:1.65rem; }
+    .quest.featured .status { background:#4a3020; color:#f9df9d; border-color:#4a3020; }
+    .quest-link { display:inline-block; margin-top:14px; padding:10px 15px; background:#543520; color:#fff0c6; text-decoration:none; border:1px solid #805232; font:bold .82rem Arial,sans-serif; }
+    .quest-link:hover, .quest-link:focus-visible { background:#724526; text-decoration:underline; }
+    .board-note { color:#e4c89a; text-align:center; font-size:.88rem; margin:15px 0 0; }
     .journal { margin:55px 0; padding:30px; border-left:4px solid var(--gold); background:#211a18; }
     .journal h2 { margin-top:0; }
     .journal p { color:#d6c4a9; margin-bottom:0; }
     footer { padding:25px 0 40px; text-align:center; color:#a99276; font-size:.85rem; border-top:1px solid #533c2c; }
-    @media(max-width:720px) { .nav { justify-content:center; } .hero { padding:52px 4px 70px; } .quests { grid-template-columns:1fr; } .inn { padding:24px 16px; } nav { gap:14px; } }
+    @media(max-width:720px) { .nav { justify-content:center; } .hero { padding:52px 4px 70px; } .quests { grid-template-columns:1fr; } .quest.featured { grid-column:auto; } .inn { padding:24px 16px; } nav { gap:14px; } .board { padding:12px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
   </style>
 </head>
 <body>
@@ -72,18 +84,45 @@
       <p>No legendary fortune required. Pull up a chair, and stay awhile.</p>
     </section>
     <section id="quests">
-      <div class="section-title"><div class="eyebrow">Adventures worth sharing</div><h2>The Quest Board</h2><small>Choose your next side quest.</small></div>
-      <div class="quests">
-        <article class="quest"><div class="symbol" aria-hidden="true">🪙</div><h3>Loot & Bargains</h3><p>Deals worth the detour, hidden savings, and the occasional treasure chest that turns out to be empty.</p></article>
-        <article class="quest"><div class="symbol" aria-hidden="true">🍲</div><h3>Campfire Cooking</h3><p>Good food from humble ingredients. Stretch the groceries, not the truth.</p></article>
-        <article class="quest"><div class="symbol" aria-hidden="true">🧪</div><h3><a href="alchemist.html" style="color:inherit">The Alchemist’s Counter ↗</a></h3><p>Dollar-store energy potions, field notes, and honest reports on flavor, focus, and side effects.</p></article>
-        <article class="quest"><div class="symbol" aria-hidden="true">🛠️</div><h3>Crafting & Repairs</h3><p>Fix it, reuse it, build it, or discover when paying someone else is the smarter quest.</p></article>
+      <div class="section-title"><div class="eyebrow">Adventures worth sharing</div><h2>The Quest Board</h2><small>One quest underway. More adventures ahead.</small></div>
+      <div class="board">
+        <div class="quests">
+          <article class="quest featured">
+            <div class="symbol" aria-hidden="true">⚗️</div>
+            <div>
+              <span class="eyebrow" style="color:#714621">Featured Quest</span>
+              <h3>The Alchemist’s Counter</h3>
+              <p>Six real Dollar Tree energy potions. Honest field notes on flavor, energy, focus, and stomach comfort. Each cost $1.50 — nine gold pieces spent in total.</p>
+              <span class="status">Active · 6 potions tested</span><br>
+              <a class="quest-link" href="alchemist.html">Visit the Counter →</a>
+            </div>
+          </article>
+          <article class="quest">
+            <div class="symbol" aria-hidden="true">🪙</div>
+            <h3>Loot &amp; Bargains</h3>
+            <p>Deals worth the detour, hidden savings, and the occasional treasure chest that turns out to be empty.</p>
+            <span class="status">Quest not yet unlocked</span>
+          </article>
+          <article class="quest">
+            <div class="symbol" aria-hidden="true">🍲</div>
+            <h3>Campfire Cooking</h3>
+            <p>Good food from humble ingredients. Stretch the groceries, not the truth.</p>
+            <span class="status">Quest not yet unlocked</span>
+          </article>
+          <article class="quest">
+            <div class="symbol" aria-hidden="true">🛠️</div>
+            <h3>Crafting &amp; Repairs</h3>
+            <p>Fix it, reuse it, build it, or discover when paying someone else is the smarter quest.</p>
+            <span class="status">Quest not yet unlocked</span>
+          </article>
+        </div>
+        <p class="board-note">New quests will appear here as the adventures happen.</p>
       </div>
     </section>
     <section id="journal" class="journal">
       <div class="eyebrow">The Adventurer's Journal</div>
-      <h2>Our story is just beginning.</h2>
-      <p>Real purchases. Real experiments. Real wins and failures. The first stories are on their way—once we've finished living them.</p>
+      <h2>Stories from the road</h2>
+      <p>Not every adventure comes with a discount or a tidy lesson. This is where the everyday discoveries, experiments, frustrations, and occasional victories will find a home. For now, the first field notes are waiting at the Alchemist's Counter.</p>
     </section>
   </main>
   <footer>© 2026 The Budget Side Quest · Every coin counts. Every journey has a story.</footer>
