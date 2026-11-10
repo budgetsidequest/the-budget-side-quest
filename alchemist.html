@@ -7,6 +7,20 @@
 <meta name="theme-color" content="#1b1412">
 <title>The Alchemist's Counter | The Budget Side Quest</title>
 <style>
+  
+.price {
+  position: absolute;
+  bottom: 23px;
+  right: 23px;
+  background: #1a110deb;
+  color: #ffdb91;
+  border: 1px solid #a77742;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font: 700 12px Arial, sans-serif;
+  box-shadow: 0 2px 8px #0008;
+}
+
 :root {
   --bg:#1b1412;
   --wood:#30221b;
@@ -236,21 +250,30 @@ footer {
 
 <main>
 
+
 <section class="welcome">
   <h2>Welcome, weary traveler.</h2>
+
   <p>
-    Not every energy potion requires a chest full of gold.
-    I've been experimenting with inexpensive energy drinks
-    to see which ones are actually worth bringing along
-    on life's daily quests.
+    Every potion in this collection was purchased
+    at Dollar Tree for just <strong>$1.50 per can.</strong>
+    No fancy subscriptions, bulk purchases, or
+    treasure chests required.
   </p>
+
   <p>
-    Flavor is only part of the adventure.
-    I'm also paying attention to energy, focus,
+    I'm testing these budget energy drinks to find out
+    which ones actually deserve a place in my inventory.
+    Flavor matters, but so do energy, focus,
     stomach comfort, and whether I'd buy another.
-    These are real experiences, not sponsored reviews.
+  </p>
+
+  <p>
+    The quest? Find a worthwhile energy potion
+    without spending a fortune.
   </p>
 </section>
+
 
 <div class="section-title">
   <h2>📜 Potion Inventory <span id="count">(6)</span></h2>
@@ -266,6 +289,7 @@ footer {
 <article class="potion" data-status="again">
   <div class="art">
     <span class="number">#006</span>
+    <span class="price">🪙 $1.50 · Dollar Tree</span>
     <img src="images/drink-006.webp"
          alt="Rip It Power Zero Sugar"
          loading="lazy">
@@ -295,6 +319,7 @@ footer {
 <article class="potion" data-status="again">
   <div class="art">
     <span class="number">#005</span>
+    <span class="price">🪙 $1.50 · Dollar Tree</span>
     <img src="images/drink-005.webp"
          alt="3D Energy Spicy Mango"
          loading="lazy">
@@ -326,6 +351,7 @@ footer {
 <article class="potion" data-status="other">
   <div class="art">
     <span class="number">#004</span>
+    <span class="price">🪙 $1.50 · Dollar Tree</span>
     <img src="images/drink-004.webp"
          alt="Lemon-lime energy drink"
          loading="lazy">
@@ -355,6 +381,7 @@ footer {
 <article class="potion" data-status="other">
   <div class="art">
     <span class="number">#003</span>
+    <span class="price">🪙 $1.50 · Dollar Tree</span>
     <img src="images/drink-003.webp"
          alt="3D Energy Orange Cream"
          loading="lazy">
@@ -384,6 +411,7 @@ footer {
 <article class="potion" data-status="other">
   <div class="art">
     <span class="number">#002</span>
+    <span class="price">🪙 $1.50 · Dollar Tree</span>
     <img src="images/drink-002.webp"
          alt="G FUEL Berry Bomb"
          loading="lazy">
@@ -415,6 +443,7 @@ footer {
 <article class="potion" data-status="again">
   <div class="art">
     <span class="number">#001</span>
+    <span class="price">🪙 $1.50 · Dollar Tree</span>
     <img src="images/drink-001.webp"
          alt="Big Game Energy Cotton Candy"
          loading="lazy">
