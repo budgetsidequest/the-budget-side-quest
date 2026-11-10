@@ -43,15 +43,15 @@
     .quest .status { display:inline-block; margin-top:16px; padding:5px 9px; border:1px solid #a27645; color:#604026; font:700 .68rem Arial,sans-serif; letter-spacing:.09em; text-transform:uppercase; }
     .quest .status.active { background:#4a3020; color:#f9df9d; border-color:#4a3020; }
     .quest-content { display:flex; align-items:flex-start; gap:18px; padding-top:12px; }
-    .quest-icon { display:block; width:120px; height:125px; object-fit:contain; flex:none; image-rendering:pixelated; }
-    .quest-copy { flex:1; min-width:0; }
+    .quest-icon { display:block; width:130px; height:130px; object-fit:contain; flex:none; image-rendering:pixelated; }
+    .quest-copy { flex:1; min-width:0; overflow-wrap:break-word; }
     .quest.featured { grid-column:1/-1; display:grid; grid-template-columns:minmax(0,1fr) minmax(190px,32%); gap:24px; align-items:center; background:linear-gradient(135deg,#f8dea9,#e4bf85); min-height:245px; }
     .featured-main { display:flex; align-items:flex-start; gap:15px; min-width:0; }
-    .featured-main .quest-icon { width:90px; height:92px; }
+    .featured-main .quest-icon { width:104px; height:104px; }
     .featured-main .quest-copy { min-width:0; overflow-wrap:break-word; }
     .featured .eyebrow { color:#714621; }
     .featured h3 { font-size:clamp(1.65rem,3vw,2.4rem); margin:7px 0 10px; }
-    .featured-art { display:block; width:100%; height:220px; object-fit:cover; object-position:center; border:0; border-radius:2px; box-shadow:0 4px 10px #4b2c1a55; mask-image:linear-gradient(to right,transparent 0%,black 9%); }
+    .featured-art { display:block; width:100%; height:220px; object-fit:contain; object-position:center; border:0; box-shadow:none; mask-image:linear-gradient(to right,transparent 0%,black 12%); }
     .quest-link { display:inline-block; margin-top:14px; padding:10px 15px; background:#543520; color:#fff0c6; text-decoration:none; border:1px solid #805232; font:bold .82rem Arial,sans-serif; }
     .quest-link:hover, .quest-link:focus-visible { background:#724526; text-decoration:underline; }
     .board-note { color:#e4c89a; text-align:center; font-size:.93rem; font-style:italic; margin:20px 0 2px; }
